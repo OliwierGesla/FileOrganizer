@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>File Organizer</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/animate.min.css">
+    <script src="./fileorganizer/fileorganizer.js"></script>
+  </head>
+
+  <body>
+
+    <span id="drag"></span>
+
+    <div id="settings"></div>
+    <div id="success"></div>
+    <div id="error"></div>
+
+    <div id="home" class="is-open">
+
+      <!-- Close and Minimize Buttons -->
+      <span class="close" onclick="win.close()"></span>
+      <span class="minimize" onclick="win.minimize()"></span>
+
+      <!-- Header -->
+      <div id="header" class="blue-gradient animated faster slideInDown">
+
+        <span class="heading" style="font-weight: 400; font-size: 32px;">The</span>
+        <span class="heading">File Organizer</span>
+      </div>
+
+      <!-- User Directory Input -->
+      <div id="input-box">
+        <input id="directory" type="text" onchange="save_directory()" placeholder="D:/Your_Directory/"/>
+        <button onclick="pick_directory()" class="blue-gradient">Select</button>
+        <input id="picker-button" onchange="update_directory()" type="file" style="display: none" webkitdirectory directory/>
+      </div>
+
+      <!-- Buttons -->
+      <div id="home-buttons" class="animated faster slideInUp">
+        <button class="grey-button" onclick="options()">Options</button>
+        <button class="blue-button" onclick="organize()">Start</button>
+      </div>
+
+    </div>
+
+  </body>
+</html>

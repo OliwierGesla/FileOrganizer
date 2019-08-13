@@ -1,0 +1,59 @@
+<!-- Header -->
+<div id="header" class="blue-gradient animated faster slideInLeft">
+  <span class="heading">Settings</span>
+</div>
+
+<div id="settings-tab">
+
+  <!-- Close and Minimize Buttons -->
+  <span class="close dark" onclick="win.close()"></span>
+  <span class="minimize dark" onclick="win.minimize()"></span>
+
+  <!-- Options -->
+  <div id="checkboxes">
+    <label class="checkbox-container">
+      Overwrite Existing Directories
+      <input type="checkbox" id="overwrite_existing_directories">
+      <span class="checkmark"></span>
+    </label>
+
+    <label class="checkbox-container">
+      Capitalize first letter of file names
+      <input type="checkbox" id="capitalize_first_letter">
+      <span class="checkmark"></span>
+    </label>
+
+    <label class="checkbox-container">
+      Create Subdirectories (eg. Documents/Word Documents)
+      <input type="checkbox" id="create_subdirectories">
+      <span class="checkmark"></span>
+    </label>
+
+    <!-- Buttons -->
+    <div id="bottom-buttons">
+      <button class="grey-button" onclick="back_to_home()">Back</button>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  // Set settings
+  $('input[type=checkbox]').each(function () {
+      if (settings.get(this.id) == 'true') {
+        this.checked = true
+      }
+      else {
+        this.checked = false
+      }
+  });
+
+  $('input:checkbox').change(function() {
+      if ($(this).is(':checked')) {
+        settings.set(this.id, 'true')
+      }
+      else {
+        settings.set(this.id, 'false')
+      }
+  });
+</script>
