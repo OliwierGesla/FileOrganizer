@@ -99,6 +99,10 @@ def organizer(directory): #Primary Organizer
 
         for filename in filenames:
 
+            #Capitalize First Letter Setting
+            if capitalize_first_letter == 'true':
+                filename = filename.capitalize()
+
             file_path = Path(dirpath, filename)
             file_format = file_path.suffix.lower()
 
@@ -111,25 +115,18 @@ def organizer(directory): #Primary Organizer
                 directory_path = Path(directory+directory_path)
                 directory_path.mkdir(parents=True, exist_ok=True)
 
-                try:
-                    file_path.rename(directory_path.joinpath(filename))
-                except FileExistsError:
-                    if index:
-                        index = '('+str(int(index[1:-1])+1)+')' # Append 1 to number in brackets
-                    else:
-                        index = '(1)'
-                    pass
             else:
                 directory_path = Path(directory, "Misc")
                 directory_path.mkdir(exist_ok=True)
-                try:
-                    file_path.rename(directory_path.joinpath(filename))
-                except FileExistsError:
-                    if index:
-                        index = '('+str(int(index[1:-1])+1)+')' # Append 1 to number in brackets
-                    else:
-                        index = '(1)'
-                    pass
+
+            try:
+                file_path.rename(directory_path.joinpath(filename))
+            except FileExistsError:
+                if index:
+                    index = '('+str(int(index[1:-1])+1)+')' # Append 1 to number in brackets
+                else:
+                    index = '(1)'
+                pass
 
 
         # Remove Empty Directories
