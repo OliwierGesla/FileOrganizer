@@ -1,19 +1,19 @@
 {
-  "name": "fileorganizer",
-  "productName": "The File Organizer",
+  "name": "FileOrganizer",
+  "productName": "File Organizer",
   "version": "1.0.0",
   "description": "A simple app that organizes your messy files",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . fileorganizer --overwrite --platform win32 --arch x64 --out tmp/dist/ --icon assets/icons/win/icon.ico",
-    "setup": "electron-installer-windows --src tmp/dist/fileorganizer-win32-x64/ --dest tmp/dist/installers --icon assets/icons/win/icon.ico --animation assets/img/installing.gif"
+    "build": "electron-packager . \"File Organizer\" --executableName fileorganizer --overwrite --platform win32 --arch x64 --out tmp/build/ --icon assets/icons/win/icon.ico",
+    "setup": "node ./scripts/installer.js"
   },
   "author": "Oliwier Gesla",
   "license": "MIT",
   "devDependencies": {
-    "electron-installer-windows": "^2.0.0",
-    "electron-packager": "^14.0.4"
+    "electron-packager": "^14.0.4",
+    "electron-winstaller": "^4.0.0"
   },
   "dependencies": {
     "electron": "^1.8.4",
