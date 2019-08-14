@@ -34,7 +34,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@oliwiergesla](https://twitter.com/oliwiergesla) - contact@oliwiergesla.com
+Oliwier Gesla - [@oliwiergesla](https://twitter.com/oliwiergesla) - contact@oliwiergesla.com
 
 Project Link: [https://github.com/oliwiergesla/FileOrganizer](https://github.com/oliwiergesla/FileOrganizer)
 
@@ -51,4 +51,4 @@ Project Link: [https://github.com/oliwiergesla/FileOrganizer](https://github.com
 * [Animate.css](https://daneden.github.io/animate.css)
 
 
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: assets/img/example.jpg
