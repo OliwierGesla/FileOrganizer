@@ -20,7 +20,7 @@ DIRECTORIES = {
     "/Images/": [".jpeg", ".jpg", ".tiff", ".gif", ".bmp", ".png", ".bpg", "svg",
                ".heif", ".psd", ".tif"],
     "/Images/RAW": [".3fr", ".ari", ".arw", ".bay", ".crw", ".cr2", ".cr3", ".cap",
-                ".data", ".dcs", ".dcr", ".dng", ".drf", ".eip", ".erf", ".fff",
+                ".dcs", ".dcr", ".dng", ".drf", ".eip", ".erf", ".fff",
                 ".gpr", ".iiq", ".k25", ".kdc", ".mdc", ".mef", ".mos", ".mrw",
                 ".nef", ".nrw", ".obm", ".orf", ".pef", ".ptx", ".pxn",
                 ".r3d", ".raf", ".raw", ".rwl", ".rw2", ".rwz",
@@ -86,6 +86,7 @@ create_subdirectories = sys.argv[4]
 def organizer(directory): #Primary Organizer
 
     os.chdir(directory)
+    index = ''
 
     for dirpath, dirnames, filenames in os.walk(directory):
 
@@ -98,23 +99,38 @@ def organizer(directory): #Primary Organizer
 
         for filename in filenames:
 
-            #Capitalize First Letter Setting
-            if capitalize_first_letter == 'true':
-                filename = filename.capitalize()
-
             file_path = Path(dirpath, filename)
             file_format = file_path.suffix.lower()
 
             if file_format in FILE_FORMATS:
-                directory_path = Path(FILE_FORMATS[file_format])
+                directory_path = FILE_FORMATS[file_format]
+
                 if create_subdirectories == 'false' and str(Path(directory_path).parent) != "\\":
-                    directory_path = Path(directory_path).parent
+                    directory_path = str(Path(directory_path).parent)
+
+                directory_path = Path(directory+directory_path)
                 directory_path.mkdir(parents=True, exist_ok=True)
-                file_path.rename(directory_path.joinpath(directory, directory_path, filename))
+
+                try:
+                    file_path.rename(directory_path.joinpath(filename))
+                except FileExistsError:
+                    if index:
+                        index = '('+str(int(index[1:-1])+1)+')' # Append 1 to number in brackets
+                    else:
+                        index = '(1)'
+                    pass
             else:
-                directory_path = Path("Misc")
+                directory_path = Path(directory, "Misc")
                 directory_path.mkdir(exist_ok=True)
-                file_path.rename(directory_path.joinpath(directory, directory_path, filename))
+                try:
+                    file_path.rename(directory_path.joinpath(filename))
+                except FileExistsError:
+                    if index:
+                        index = '('+str(int(index[1:-1])+1)+')' # Append 1 to number in brackets
+                    else:
+                        index = '(1)'
+                    pass
+
 
         # Remove Empty Directories
         try:
