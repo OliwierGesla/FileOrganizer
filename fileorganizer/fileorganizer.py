@@ -86,7 +86,6 @@ create_subdirectories = sys.argv[4]
 def organizer(directory): #Primary Organizer
 
     os.chdir(directory)
-    index = ''
 
     for dirpath, dirnames, filenames in os.walk(directory):
 
@@ -98,6 +97,8 @@ def organizer(directory): #Primary Organizer
             del(dirnames[:])
 
         for filename in filenames:
+
+            index = ''
 
             #Capitalize First Letter Setting
             if capitalize_first_letter == 'true':
