@@ -1,6 +1,6 @@
 # The File Organizer
 
-[![Product Name Screen Shot][product-screenshot]]
+![Product Name Screen Shot][product-screenshot]
 
 
 
