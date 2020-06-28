@@ -8,6 +8,7 @@
 ### About
 
 The File Organizer is a very simple app that organizes your messy files with ease.
+Created for my Year 12 VCE Computing assessment.
 
 
 
