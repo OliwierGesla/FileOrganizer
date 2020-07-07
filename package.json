@@ -16,7 +16,7 @@
     "electron-winstaller": "^4.0.0"
   },
   "dependencies": {
-    "electron": "^1.8.4",
+    "electron": "^7.2.4",
     "electron-settings": "^3.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.4.1",
